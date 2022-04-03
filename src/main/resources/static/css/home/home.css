@@ -1,0 +1,124 @@
+/* Chạy chữ */
+.chaychu{
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+.chaychu>.col>marquee{
+    color: red;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+/* Sản phẩm */
+.sanpham{
+    background-color: #f8f9fa; border-radius: 10px;
+}
+.title{
+    color: black; font-variant: small-caps;font-weight: bolder;font-size: 20px;
+}
+.products>.card {
+    height: 36.3rem;
+}
+
+.products>.card>a>img {
+    width: 70%;
+    transform: translateX(2.5rem);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.products>.card>a>img:hover {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+/* tên sản phẩm */
+.card-body {
+    text-align: center;
+}
+
+.card-body>a>h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.card-body>a:hover {
+    text-decoration: none;
+}
+
+.list-group {
+    width: 100%;
+    transform: translateX(1rem);
+    list-style: circle;
+}
+
+/* đánh giá */
+.danhgia {
+    width: 100%;
+}
+
+.rate {
+    text-align: center;
+}
+
+.rate:not(:checked)>label {
+    width: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 21px;
+    color: #ffd84a;
+    margin-bottom: 0;
+    line-height: 21px;
+}
+
+.rate:not(:checked)>label:before {
+    content: '\2605';
+}
+
+/* Giá */
+.line-through {
+    text-decoration: line-through;
+}
+
+/* card footer */
+.card-footer {
+    background-color: #fff;
+}
+
+.tht {
+    text-align: center;
+}
+
+.tht>a {
+    color: red;
+    font-weight: bolder;
+}
+
+.tht>a:hover {
+    text-decoration: none;
+}
+
+
+.card:hover {
+    box-shadow: 5px 5px 10px 5px grey;
+}
+
+
+.card>.giamgia{
+    background-color: red;
+    color: #fff;
+    font-weight: bolder;
+    width: 60%;
+    text-align: center;
+}
+.card>.soluong>p{
+    float: right;
+    background-color: #ffd84a;
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,205 @@
+/* message thông báo */
+.thongbao {
+    color: red;
+    text-align: center;
+    background-color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+/* slide show */
+.slshow {
+    margin-top: 1rem;
+}
+
+/* bộ lọc sản phẩm */
+.dropdown-item>img {
+    width: 100%;
+}
+
+.card-body>button {
+    width: 100%;
+    margin-bottom: 0.3rem;
+    border: 1px solid #f8f9fa;
+    border-radius: 10px;
+}
+/* Sản phẩm */
+.sanpham{
+    background-color: #f8f9fa; border-radius: 10px 10px 0px 0px;
+}
+.products>.card {
+    height: 36.3rem;
+}
+
+.products>.card>a>img {
+    width: 70%;
+    transform: translateX(2.5rem);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.products>.card>a>img:hover {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+/* tên sản phẩm */
+.card-body {
+    text-align: center;
+}
+
+.card-body>a>h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.card-body>a:hover {
+    text-decoration: none;
+}
+
+.list-group {
+    width: 100%;
+    transform: translateX(1rem);
+    list-style: circle;
+}
+
+/* đánh giá */
+.danhgia {
+    width: 100%;
+}
+
+.rate {
+    text-align: center;
+}
+
+.rate:not(:checked)>label {
+    width: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 21px;
+    color: #ffd84a;
+    margin-bottom: 0;
+    line-height: 21px;
+}
+
+.rate:not(:checked)>label:before {
+    content: '\2605';
+}
+
+/* Giá */
+.line-through {
+    text-decoration: line-through;
+}
+
+/* card footer */
+.card-footer {
+    background-color: #fff;
+}
+
+.tht {
+    text-align: center;
+}
+
+.tht>a {
+    color: red;
+    font-weight: bolder;
+}
+
+.tht>a:hover {
+    text-decoration: none;
+}
+
+.sp:hover {
+    box-shadow: 5px 5px 10px 5px grey;
+}
+
+/* giảm giá */
+.card>.giamgia{
+    background-color: red;
+    color: #fff;
+    font-weight: bolder;
+    width: 60%;
+    text-align: center;
+}
+/* số lượng */
+.card>.soluong>p{
+    float: right;
+    background-color: #ffd84a;
+    color: red;
+    font-style: italic;
+}
+/* Phân trang */
+.page{
+    background-color: #f8f9fa; border-radius: 0px 0px 10px 10px;
+}
+
+/* Có thể bạn sẽ thích */
+div#nz-div {
+    border-bottom: 2px solid red;
+    margin-bottom: 40px;
+    display: block;
+}
+
+#nz-div h3.tde {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+#nz-div h3.tde :after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 20px solid #EA3A3C;
+    border-bottom: 0px solid transparent;
+    border-right: 0 solid transparent;
+    position: absolute;
+    top: 0px;
+    right: -20px;
+}
+
+#nz-div h3.tde span {
+    background: #EA3A3C;
+    padding: 10px 20px 8px 20px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.ctbst>.card {
+    height: 28rem;
+}
+
+.ctbst>.card>a>img {
+    width: 70%;
+    transform: translateX(2.5rem);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.ctbst>.card>a>img:hover {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+
+
+

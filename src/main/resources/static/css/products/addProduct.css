@@ -1,0 +1,23 @@
+.card>.card-header{
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    font-weight: bolder;
+    font-variant: small-caps;
+}
+.thongbao{
+    color: red;
+    text-align: center;
+    background-color: white;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.card-footer{
+    text-align: center;
+}
+.form-group>label>small{
+    font-size: 15px;
+    font-weight: bolder;
+    color: red;
+    font-style: italic;
+}

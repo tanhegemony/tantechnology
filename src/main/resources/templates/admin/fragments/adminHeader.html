@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <title>Trang chủ</title>
+</head>
+
+<body>
+  <div th:fragment="adminHeader">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-3 text-center namepage">
+            <a th:href="@{/admin}"><img class="img-fluid" src="/images/logo.gif" style="border-radius: 10px;" width="20%" alt=""></a>
+            <p class="namepageadmin">TH TECHNOLOGY</p>
+          </div>
+          <div class="col-9 mt-4 mb-4 menucontent" style="background-color: #f8f9fa;border-radius: 20px;">
+            <ul class="nav mt-2 justify-content-end">
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-globe-asia"></i> Tự động hóa</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-piggy-bank"></i> Báo cáo</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-book-open"></i> Nội dung</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-hourglass"></i> Hoạt động</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-phone-volume"></i> Liên lạc</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link">
+                  <button class="btn btn-light"><i class="fas fa-cog"></i> Cài đặt</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link active">
+                  <div class="btn-group dropleft float-right">
+                    <a class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-bell"></i> <span class="badge badge-light">2</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <p class="tb">Thông báo</p>
+                      <a class="dropdown-item" href="#">
+                        <i class="fas fa-envelope"></i> Tấn đã gửi thông báo cho bạn
+                          <p class="updatedate">
+                            26/12/2021 06:30:33
+                          </p>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="fas fa-envelope"></i> Huệ đã bình luận vào website của bạn
+                        <p class="updatedate">
+                          26/12/2021 06:30:33
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-3 menu">
+          <div class="btn-group dropleft userdangnhap">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <img class="img-fluid" width="10%" style="border-radius: 100%;" src="/images/adminHome/logonguoidung.jpg" alt="">
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                Logout
+              </a>
+            </div>
+          </div>
+          <p class="chuMenu"><i class="fas fa-bars"></i> Menu</p>
+          <div class="nav text-center flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="btn btn-light nav-link active" id="v-pills-dashboard-tab" 
+            data-toggle="pill" href="#v-pills-dashboard" role="tab" 
+            aria-controls="v-pills-dashboard" aria-selected="true">
+              Dashboard
+            </a>
+            <button class="btn btn-light nav-link" id="v-pills-user-tab" data-toggle="pill" 
+            href="#v-pills-user" role="tab" aria-controls="v-pills-user" 
+            aria-selected="false">
+              Quản lý Người dùng
+            </button>
+            <button class="btn btn-light nav-link" id="v-pills-categories-tab" data-toggle="pill" 
+            href="#v-pills-categories" role="tab" aria-controls="v-pills-categories" 
+            aria-selected="false">
+              Quản lý Danh mục
+            </button>
+            <a class="btn btn-light nav-link" id="v-pills-products-tab" data-toggle="pill" 
+            href="#v-pills-products" role="tab" aria-controls="v-pills-products" 
+            aria-selected="false">
+              Quản lý Sản phẩm
+            </a>
+            <button class="btn btn-light nav-link" id="v-pills-orders-tab" data-toggle="pill" 
+            href="#v-pills-orders" role="tab" aria-controls="v-pills-orders" 
+            aria-selected="false">
+              Quản lý Đơn hàng
+            </button>
+            <button class="btn btn-light nav-link" id="v-pills-comments-tab" data-toggle="pill" 
+            href="#v-pills-comments" role="tab" aria-controls="v-pills-comments" 
+            aria-selected="false">
+              Quản lý Tin nhắn / Bình luận
+            </button>
+            <button class="btn btn-light nav-link" id="v-pills-rates-tab" data-toggle="pill" 
+            href="#v-pills-rates" role="tab" aria-controls="v-pills-rates" 
+            aria-selected="false">
+              Quản lý Đánh giá
+            </button>
+          </div>
+        </div>
+        <div class="col-9 content mt-2">
+            
+        </div>
+        </div>
+      </div>
+</body>
+
+</html>

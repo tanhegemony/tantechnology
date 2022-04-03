@@ -1,0 +1,111 @@
+@media only screen and (max-width: 1200px){
+    .nametitle{
+        height: 10rem;
+    }
+    .nametitle>.col-md>.card-title{
+        font-size: 16px;
+    }
+    .ct>.card-body>.card-text{
+        font-size: 15px;
+    }
+    .namepage{
+        transform: translateY(2rem);
+    }
+    .tableaccount{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .nametitle{
+        height: 11rem;
+    }
+    .ct>.card-body>.card-text{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 991px){
+    .nametitle{
+        height: 12rem;
+    }
+    .ct>.card-body>.card-text{
+        font-size: 12px;
+    }
+    .chart,.userdangonline{
+        min-width: 100%;
+    }
+    .tableaccount{
+        font-size: 12px;
+    }
+    .thaotac>a{
+        font-size: 11px;
+    }
+}
+@media only screen and (max-width: 767px){
+    .content1,.content2,.content3,.content4,.content5,.content6{
+        min-width: 50%;
+    }
+    .nametitle{
+        height: 16rem;
+    }
+    .no-gutters>.col-md-5>img{
+        width: 50%;
+    }
+    .no-gutters>.col-md-5{
+        text-align: center;
+    }
+    
+    .namepage>img{
+        width: 30%;
+    }
+    .namepageadmin{
+        font-size: 15px;
+    }
+    .userdangnhap>button>img{
+        width: 18%;
+    }
+    .menu>.flex-column>button{
+        font-size: 15px;
+    }
+    .management{
+        min-width: 170%;
+    }
+}
+@media only screen and (max-width: 480px){
+    .namepage{
+        min-width: 100%;
+        transform: translateY(0rem);
+    }
+    .menucontent{
+        min-width: 100%;
+    }
+    .content1,.content2,.content3,.content4,.content5,.content6{
+        min-width: 100%;
+    }
+    .no-gutters>.col-md-5>img{
+        width: 30%;
+    }
+    .menu{
+        min-width: 40%;
+    }
+    .content{
+        max-width: 60%;
+    }
+    .tableuser{
+        font-size: 14px;
+    }
+    .chart{
+        min-width: 280%;
+    }
+    
+    .userdangonline{
+        min-width: 280%;
+    }
+    .management{
+        min-width: 320%;
+    }
+}
+@media only screen and (max-width: 320px){
+    .menu>.flex-column>button{
+        font-size: 12px;
+    }
+}

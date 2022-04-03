@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Trang chủ - Quản lý</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/adminHome/home.css}">
+    <link rel="stylesheet" th:href="@{/css/adminHome/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/adminHome/categorymanagement.css}">
+    <link rel="stylesheet" th:href="@{/css/adminHome/responsive.css}">
+    <style>
+      .chart--container {  height: 100%;  width: 100%;  min-height: 530px;}
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 text-center namepage">
+          <a th:href="@{/admin}"><img class="img-fluid" src="/images/logo.gif" style="border-radius: 10px;" width="20%" alt=""></a>
+          <p class="namepageadmin">TH TECHNOLOGY</p>
+        </div>
+        <div class="col-9 mt-4 mb-4 menucontent" style="background-color: #f8f9fa;border-radius: 20px;">
+          <ul class="nav mt-2 justify-content-end">
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-globe-asia"></i> Tự động hóa</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-piggy-bank"></i> Báo cáo</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-book-open"></i> Nội dung</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-hourglass"></i> Hoạt động</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-phone-volume"></i> Liên lạc</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <button class="btn btn-light"><i class="fas fa-cog"></i> Cài đặt</button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link active">
+                <div class="btn-group dropleft float-right">
+                  <a class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-bell"></i> <span class="badge badge-light">2</span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <p class="tb">Thông báo</p>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-envelope"></i> Tấn đã gửi thông báo cho bạn
+                        <p class="updatedate">
+                          26/12/2021 06:30:33
+                        </p>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-envelope"></i> Huệ đã bình luận vào website của bạn
+                      <p class="updatedate">
+                        26/12/2021 06:30:33
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-3 menu">
+        <div class="btn-group dropleft userdangnhap">
+          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <img class="img-fluid" width="10%" style="border-radius: 100%;" src="/images/adminHome/logonguoidung.jpg" alt="">
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              Logout
+            </a>
+          </div>
+        </div>
+        <p class="chuMenu"><i class="fas fa-bars"></i> Menu</p>
+        <div class="nav text-center flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="btn btn-light nav-link active" id="v-pills-dashboard-tab" 
+          data-toggle="pill" href="#v-pills-dashboard" role="tab" 
+          aria-controls="v-pills-dashboard" aria-selected="true">
+            Dashboard
+          </a>
+          <button class="btn btn-light nav-link" id="v-pills-user-tab" data-toggle="pill" 
+          href="#v-pills-user" role="tab" aria-controls="v-pills-user" 
+          aria-selected="false">
+            Quản lý Người dùng
+          </button>
+          <button class="btn btn-light nav-link" id="v-pills-categories-tab" data-toggle="pill" 
+          href="#v-pills-categories" role="tab" aria-controls="v-pills-categories" 
+          aria-selected="false">
+            Quản lý Danh mục
+          </button>
+          <a class="btn btn-light nav-link" id="v-pills-products-tab" data-toggle="pill" 
+          href="#v-pills-products" role="tab" aria-controls="v-pills-products" 
+          aria-selected="false">
+            Quản lý Sản phẩm
+          </a>
+          <button class="btn btn-light nav-link" id="v-pills-orders-tab" data-toggle="pill" 
+          href="#v-pills-orders" role="tab" aria-controls="v-pills-orders" 
+          aria-selected="false">
+            Quản lý Đơn hàng
+          </button>
+          <button class="btn btn-light nav-link" id="v-pills-comments-tab" data-toggle="pill" 
+          href="#v-pills-comments" role="tab" aria-controls="v-pills-comments" 
+          aria-selected="false">
+            Quản lý Tin nhắn / Bình luận
+          </button>
+          <button class="btn btn-light nav-link" id="v-pills-rates-tab" data-toggle="pill" 
+          href="#v-pills-rates" role="tab" aria-controls="v-pills-rates" 
+          aria-selected="false">
+            Quản lý Đánh giá
+          </button>
+        </div>
+      </div>
+      <div class="col-9 content mt-2">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel" 
+          aria-labelledby="v-pills-dashboard-tab">
+            <div class="row">
+              <div class="col-4 content1">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Tổng tiền đã thanh toán</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="/images/adminHome/money-bag.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">30.145.000đ</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 content2">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Tin nhắn / Bình luận</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="/images/adminHome/message.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">10</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 content3">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Đơn hàng đang chờ xử lý</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="/images/adminHome/cart.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">25</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 content4">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Thành viên mới tham gia</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="/images/adminHome/add-user.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">20</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 content5">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Trực tuyến</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="/images/adminHome/online.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">154</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 content6">
+                <div class="card mb-3 nametitle" style="max-width: 540px;">
+                  <div class="col-md text-center mt-2">
+                    <h5 class="card-title">Đánh giá website</h5>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col-md-5">
+                      <img src="images/adminHome/rating.png" class="img-fluid ml-3" width="80%" alt="">
+                    </div>
+                    <div class="col-md-7 mt-2 ct">
+                      <div class="card-body">
+                        <p class="card-text text-center">51</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row no-gutters">
+                    <div class="col">
+                      <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7 chart">
+                <div id="myChart" class="chart--container">
+                </div>
+                <script>
+                  let initState = null; // Used later to store the chart state before changing the data
+                  let chartConfig = {
+                    type: 'bar',
+                    theme: 'classic',
+                    globals: {
+                      fontFamily: 'Helvetica'
+                    },
+                    backgroundColor: 'white',
+                    title: {
+                      text: 'Biểu đồ quan sát tình trạng website qua từng giai đoạn',
+                      backgroundColor: 'white',
+                      color: '#606060'
+                    },
+                    plot: {
+                      // Viền khi rê chuột vào các cột
+                      hoverState: {
+                        border: "2px solid silver"
+                      },
+                      tooltip: {
+                        visible: false
+                      },
+                      // Hiển thị %
+                      valueBox: {
+                        text: '%v%',
+                        color: 'red',
+                        textDecoration: 'underline'
+                      },
+                      animation: {
+                        effect: 'ANIMATION_EXPAND_HORIZONTAL'
+                      },
+                      cursor: 'hand',
+                      dataBrowser: [
+                      ],
+                      rules: [
+                        {
+                          backgroundColor: '#ff6767',
+                          rule: '%i==0'
+                        },
+                        {
+                          backgroundColor: '#a0a0a0',
+                          rule: '%i==1'
+                        },
+                        {
+                          backgroundColor: '#b296f8',
+                          rule: '%i==2'
+                        },
+                        {
+                          backgroundColor: '#d5f277',
+                          rule: '%i==3'
+                        },
+                        {
+                          backgroundColor: '#78ee80',
+                          rule: '%i==4'
+                        }
+                      ]
+                    },
+                    scaleX: {
+                      values: ['Đơn hàng', 'Thành viên', 'Trực tuyến', 'Đánh giá', 'Tin nhắn / Bình luận'],
+                      guide: {
+                        visible: false
+                      },
+                      // Hiển thị chữ dưới mỗi cột
+                      item: {
+                        color: 'red'
+                      },
+                      lineColor: '#C0D0E0',
+                      lineWidth: '1px',
+                      tick: {
+                        lineColor: '#C0D0E0',
+                        lineWidth: '1px'
+                      }
+                    },
+                    scaleY: {
+                      guide: {
+                        lineStyle: 'solid'
+                      },
+                      // Hiển thị số bên
+                      item: {
+                        color: 'black'
+                      },
+                      lineColor: 'none',
+                      tick: {
+                        lineColor: 'none'
+                      }
+                    },
+                    crosshairX: {
+                      lineColor: 'none',
+                      lineWidth: '0px',
+                      marker: {
+                        visible: false
+                      },
+                      plotLabel: {
+                        text: '%v% of total',
+                        padding: '8px',
+                        alpha: 0.9,
+                        backgroundColor: 'white',
+                        borderRadius: '4px',
+                        borderWidth: '3px',
+                        callout: true,
+                        calloutPosition: 'bottom',
+                        color: '#606060',
+                        fontSize: '12px',
+                        multiple: true,
+                        offsetY: '-20px',
+                        placement: 'node-top',
+                        // Viền of total
+                        rules: [
+                          {
+                            borderColor: '#ff6767',
+                            rule: '%i==0'
+                          },
+                          {
+                            borderColor: '#a0a0a0',
+                            rule: '%i==1'
+                          },
+                          {
+                            borderColor: '#b296f8',
+                            rule: '%i==2'
+                          },
+                          {
+                            borderColor: '#d5f277',
+                            rule: '%i==3'
+                          },
+                          {
+                            borderColor: '#78ee80',
+                            rule: '%i==4'
+                          }
+                        ],
+                        shadow: false
+                      },
+                      scaleLabel: {
+                        visible: false
+                      }
+                    },
+                    series: [
+                      {
+                        values: [44.34, 39.28, 57.16, 25.82, 35.18]
+                      }
+                    ]
+                  };
+
+                  zingchart.render({
+                    id: 'myChart',
+                    data: chartConfig,
+                    height: '100%',
+                    width: '100%',
+                  });
+
+                  zingchart.bind('myChart', 'node_click', updateChart);
+
+                  // Listen for back button click
+                  zingchart.bind('myChart', 'shape_click', (p) => {
+                    zingchart.unbind(p.id, 'animation_end');
+                    if (p.shapeid == 'back_btn') {
+                      // Set the data back to the state it was in when the node was clicked
+                      zingchart.exec(p.id, 'setdata', {
+                        data: initState
+                      });
+                      zingchart.bind(p.id, 'node_click', updateChart);
+                    }
+                  });
+                </script>
+              </div>
+              <div class="col-5 userdangonline">
+                <p>Các user đang trực tuyến</p>
+                <table class="table table-light tableuser">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>UserName</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>tanhegemony</td>
+                      <td>Admin</td>
+                      <td><i class="fas fa-circle"></i> Trực tuyến</td>
+                    </tr>
+                    <tr>
+                      <td>tanhegemony12</td>
+                      <td>User</td>
+                      <td><i class="fas fa-circle"></i> Trực tuyến</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th colspan="3" class="text-center" ><a href="#">Xem tất cả</a></th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-user" role="tabpanel" 
+          aria-labelledby="v-pills-user-tab">
+          ...
+          </div>
+          <div class="tab-pane fade" id="v-pills-categories" role="tabpanel" 
+            aria-labelledby="v-pills-categories-tab">
+            ...
+          </div>
+          <div class="tab-pane fade show " id="v-pills-products" role="tabpanel" 
+          aria-labelledby="v-pills-products-tab">
+          <div class="row mt-2 management">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Danh sách Product
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/admin/products/}">
+                            <div class="form-inline">
+                                <input type="text" class="col form-control ml-2" th:value="${name}" 
+                                name="name" placeholder="Nhập tên sản phẩm cần tìm kiếm">
+                                <button class="btn btn-danger ml-2">Tìm kiếm</button>
+                                <a th:href="@{/admin/products/}" class="btn btn-info ml-2">Tất cả</a>
+                            </div>
+                        </form>
+                        <div class="row mb-2 mt-2">
+                            <div class="col-5">
+                                <div th:if="${message != null}" class="thongbao">
+                                    <i>[[${message}]]</i>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                               <form action="">
+                                <div class="form-inline float-left">
+                                    <label for="size" class="ml-2">Số Product hiển thị: </label>
+                                    <!-- tự động cập nhập size onchange -->
+                                    <select id="size" class="form-control ml-2" name="size"
+                                     onchange="this.form.submit()">
+                                        <option th:selected="${productPage.size == 5}" value="5">5</option>
+                                        <option th:selected="${productPage.size == 10}" value="10">10</option>
+                                        <option th:selected="${productPage.size == 15}" value="15">15</option>
+                                        <option th:selected="${productPage.size == 20}" value="20">20</option>
+                                    </select>
+                                </div>
+                               </form> 
+                            </div>
+                            <div class="col-3">
+                                <div class="addProduct">
+                                    <a th:href="@{/admin/products/addProduct}" 
+                                    class="btn btn-outline-dark float-right">Thêm Sản phẩm mới</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" th:if="${!productPage.hasContent()}"> 
+                            <div class="col">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Không tìm thấy Sản phẩm</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-light text-center tableaccount"
+                        th:if="${productPage.hasContent()}">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>ProductID</th>
+                                    <th style="width: 20%;">ProductImage</th>
+                                    <th>ProductName</th>
+                                    <th>CategoryName</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>EnteredDate</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="product, iStat : ${productPage.content}">
+                                    <td th:text="${product.productID}"></td>
+                                    <td><img class="img-fluid" th:src="${product.image!=null? '/admin/products/images/' + 
+                                        product.image : '/images/DefaultImage/macdinh.gif'}" width="40%" alt=""> </td>
+                                    <td th:text="${product.name}"></td>
+                                    <td th:text="${product.category.name}"></td>
+                                    <td th:text="${#numbers.formatDecimal(product.price,3,'POINT',0,'COMMA')}"></td>
+                                    <td th:text="${product.status}"></td>
+                                    <td th:text="${#dates.format( product.enteredDate , 'dd/MM/yyyy')}"></td>
+                                    <td>
+                                        <a th:href="@{'/admin/products/edit/' + ${product.productID}}" class="btn btn-light"><img class="img-fluid" src="/images/icon/edit-16px.png" alt=""> Chỉnh sửa</a>
+                                        <a th:href="@{'/admin/products/delete/' + ${product.productID}}" class="btn btn-danger"><img class="img-fluid" src="/images/icon/delete-16px.png" alt=""> Xóa</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <nav aria-label="Page navigation example"
+                        th:if="${productPage.totalPages > 0}">
+                            <ul class="pagination justify-content-center">
+                                <!-- trang hiện tại trang đầu tiên -->
+                            <li th:class="${1 == productPage.number + 1} 
+                            ? 'page-item disabled' : 'page-item'">
+                                <a class="page-link" th:href="@{/admin/(name=${name},
+                                size=${productPage.size}, page=${1})}" aria-label="Previous">
+                                <span aria-hidden="true">Đầu</span>
+                                </a>
+                            </li>
+    
+                            <li class="page-item active"
+                            th:each=" pageNumber : ${pageNumbers}"
+                            th:if="${productPage.totalPages > 1}"
+                            th:class="${pageNumber == productPage.number+1} ? 'page-item active' : 'page-item'">
+                                <a th:href="@{/admin/(name=${name},
+                                size=${productNumber}, page=${pageNumber})}" class="page-link" th:text="${pageNumber}"></a>
+                                </li>
+                                
+                                <!-- trang hiện tại là trang cuối cùng -->
+                            <li th:class="${productPage.totalPages == productPage.number + 1} 
+                            ? 'page-item disabled' : 'page-item'">
+                                <a class="page-link" th:href="@{/admin/(name=${name},
+                                size=${productPage.size}, page=${productPage.totalPages})}" aria-label="Next">
+                                <span aria-hidden="true">Cuối</span>
+                                </a>
+                            </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-orders" role="tabpanel" 
+          aria-labelledby="v-pills-orders-tab">
+            ...
+          </div>
+          <div class="tab-pane fade" id="v-pills-comments" role="tabpanel" 
+          aria-labelledby="v-pills-comments-tab">
+            ...
+          </div>
+          <div class="tab-pane fade" id="v-pills-rates" role="tabpanel" 
+          aria-labelledby="v-pills-rates-tab">
+            ...
+          </div>
+        </div>
+          <div class="row footer2">
+            <div class="col-8 bq">
+                <p>© 2021 - Bản quyền thuộc về Tan-Electric_Device - Nơi cung cấp và trưng bày nhiều thiết bị điện
+                    tử nhất trên thế giới</p>
+            </div>
+            <div class="col-4 gd">
+                <p>Giám đốc công ty: <span style="font-variant: small-caps;">Hồ Ngọc Tấn (Tấn Hegemony)</span></p>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

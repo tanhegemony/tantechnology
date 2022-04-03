@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{admin/dashboardLayout.html}"
+>
+
+<head>
+    <title>Danh sách các Product</title>
+    <link rel="stylesheet" th:href="@{/css/products/listProduct.css}">
+
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Danh sách Product
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/products/}">
+                        <div class="form-inline">
+                            <input type="text" class="col form-control ml-2" th:value="${name}" 
+                            name="name" placeholder="Nhập tên sản phẩm cần tìm kiếm">
+                            <button class="btn btn-danger ml-2">Tìm kiếm</button>
+                            <a th:href="@{/admin/products/}" class="btn btn-info ml-2">Tất cả</a>
+                        </div>
+                    </form>
+                    <div class="row mb-2 mt-2">
+                        <div class="col-5">
+                            <div th:if="${message != null}" class="thongbao">
+                                <i>[[${message}]]</i>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                           <form action="">
+                            <div class="form-inline float-left">
+                                <label for="size" class="ml-2">Số Product hiển thị: </label>
+                                <!-- tự động cập nhập size onchange -->
+                                <select id="size" class="form-control ml-2" name="size"
+                                 onchange="this.form.submit()">
+                                    <option th:selected="${productPage.size == 5}" value="5">5</option>
+                                    <option th:selected="${productPage.size == 10}" value="10">10</option>
+                                    <option th:selected="${productPage.size == 15}" value="15">15</option>
+                                    <option th:selected="${productPage.size == 20}" value="20">20</option>
+                                </select>
+                            </div>
+                           </form> 
+                        </div>
+                        <div class="col-3">
+                            <div class="addProduct">
+                                <a th:href="@{/admin/products/addProduct}" 
+                                class="btn btn-outline-dark float-right">Thêm Sản phẩm mới</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" th:if="${!productPage.hasContent()}"> 
+                        <div class="col">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Không tìm thấy Sản phẩm</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-light text-center"
+                    th:if="${productPage.hasContent()}">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ProductID</th>
+                                <th style="width: 20%;">ProductImage</th>
+                                <th>ProductName</th>
+                                <th>CategoryName</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>EnteredDate</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="product, iStat : ${productPage.content}">
+                                <td th:text="${product.productID}"></td>
+                                <td><img class="img-fluid" th:src="${product.image!=null? '/admin/products/images/' + 
+                                    product.image : '/images/DefaultImage/macdinh.gif'}" width="40%" alt=""> </td>
+                                <td th:text="${product.name}"></td>
+                                <td th:text="${product.category.name}"></td>
+                                <td th:text="${#numbers.formatDecimal(product.price,3,'POINT',0,'COMMA')}"></td>
+                                <td th:text="${product.status}"></td>
+                                <td th:text="${#dates.format( product.enteredDate , 'dd/MM/yyyy')}"></td>
+                                <td>
+                                    <a th:href="@{'/admin/products/edit/' + ${product.productID}}" class="btn btn-light"><img class="img-fluid" src="/images/icon/edit-16px.png" alt=""> Chỉnh sửa</a>
+                                    <a th:href="@{'/admin/products/delete/' + ${product.productID}}" class="btn btn-danger"><img class="img-fluid" src="/images/icon/delete-16px.png" alt=""> Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-muted">
+                    <nav aria-label="Page navigation example"
+                    th:if="${productPage.totalPages > 0}">
+                        <ul class="pagination justify-content-center">
+                            <!-- trang hiện tại trang đầu tiên -->
+                        <li th:class="${1 == productPage.number + 1} 
+                        ? 'page-item disabled' : 'page-item'">
+                            <a class="page-link" th:href="@{/admin/products/(name=${name},
+                            size=${productPage.size}, page=${1})}" aria-label="Previous">
+                            <span aria-hidden="true">Đầu</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item active"
+                        th:each=" pageNumber : ${pageNumbers}"
+                        th:if="${productPage.totalPages > 1}"
+                        th:class="${pageNumber == productPage.number+1} ? 'page-item active' : 'page-item'">
+                            <a th:href="@{/admin/products/(name=${name},
+                            size=${productNumber}, page=${pageNumber})}" class="page-link" th:text="${pageNumber}"></a>
+                            </li>
+                            
+                            <!-- trang hiện tại là trang cuối cùng -->
+                        <li th:class="${productPage.totalPages == productPage.number + 1} 
+                        ? 'page-item disabled' : 'page-item'">
+                            <a class="page-link" th:href="@{/admin/products/(name=${name},
+                            size=${productPage.size}, page=${productPage.totalPages})}" aria-label="Next">
+                            <span aria-hidden="true">Cuối</span>
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

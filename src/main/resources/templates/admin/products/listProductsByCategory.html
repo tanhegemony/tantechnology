@@ -1,0 +1,963 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/dashboardLayout.html}">
+
+<head>
+	<title>Danh sách sản phẩm</title>
+	<link rel="stylesheet" th:href="@{/css/home/listProductsByCategory.css}">
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<!-- slideshow -->
+		<!-- Nếu là điện thoại -->
+		<div th:if="${dienthoai}" class="row slshow">
+			<div class="col-8">
+				<div id="carouselId" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselId" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselId" data-slide-to="1"></li>
+						<li data-target="#carouselId" data-slide-to="2"></li>
+						<li data-target="#carouselId" data-slide-to="3"></li>
+						<li data-target="#carouselId" data-slide-to="4"></li>
+						<li data-target="#carouselId" data-slide-to="5"></li>
+						<li data-target="#carouselId" data-slide-to="6"></li>
+						<li data-target="#carouselId" data-slide-to="7"></li>
+						<li data-target="#carouselId" data-slide-to="8"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/1.png" class="img-fluid"
+									alt="First slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/2.png" class="img-fluid"
+									alt="Second slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/3.png" class="img-fluid"
+									alt="Third slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/4.png" class="img-fluid"
+									alt="Four slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/5.png" class="img-fluid"
+									alt="Fifth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/6.png" class="img-fluid"
+									alt="Sixth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/7.png" class="img-fluid"
+									alt="Seventh slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/8.png" class="img-fluid"
+									alt="Eighth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Dienthoaithongminh/slideshow/9.png" class="img-fluid"
+									alt="Nineth slide">
+							</a>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+						<span class="carousel-control-next-icon " aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-4 img">
+				<a href="Dienthoaithongminh.html"><img src="/images/Dienthoaithongminh/slideshow/10.png"
+						class="img-fluid" alt=""></a>
+				<a href="Dienthoaithongminh.html"><img src="/images/Dienthoaithongminh/slideshow/11.png"
+						class="img-fluid" alt=""></a>
+			</div>
+		</div>
+		<!-- Nếu là laptop -->
+		<div th:if="${laptop}" class="row slshow">
+			<div class="col-8">
+				<div id="carouselId" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselId" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselId" data-slide-to="1"></li>
+						<li data-target="#carouselId" data-slide-to="2"></li>
+						<li data-target="#carouselId" data-slide-to="3"></li>
+						<li data-target="#carouselId" data-slide-to="4"></li>
+						<li data-target="#carouselId" data-slide-to="5"></li>
+						<li data-target="#carouselId" data-slide-to="6"></li>
+						<li data-target="#carouselId" data-slide-to="7"></li>
+						<li data-target="#carouselId" data-slide-to="8"></li>
+						<li data-target="#carouselId" data-slide-to="9"></li>
+						<li data-target="#carouselId" data-slide-to="10"></li>
+						<li data-target="#carouselId" data-slide-to="11"></li>
+						<li data-target="#carouselId" data-slide-to="12"></li>
+						<li data-target="#carouselId" data-slide-to="13"></li>
+						<li data-target="#carouselId" data-slide-to="14"></li>
+						<li data-target="#carouselId" data-slide-to="15"></li>
+						<li data-target="#carouselId" data-slide-to="16"></li>
+
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide1.jpg" class="img-fluid"
+									alt="First slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide2.jpg" class="img-fluid"
+									alt="Second slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide3.jpg" class="img-fluid"
+									alt="Third slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide4.jpg" class="img-fluid"
+									alt="Four slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide5.jpg" class="img-fluid"
+									alt="Fifth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide6.jpg" class="img-fluid"
+									alt="Sixth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide7.jpg" class="img-fluid"
+									alt="Seventh slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide8.jpg" class="img-fluid"
+									alt="Eighth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide9.jpg" class="img-fluid"
+									alt="Nineth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide10.jpg" class="img-fluid"
+									alt="Tenth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide11.jpg" class="img-fluid"
+									alt="Eleventh slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide12.jpg" class="img-fluid"
+									alt="Twelveth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide13.jpg" class="img-fluid"
+									alt="Thirdteenth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide14.jpg" class="img-fluid"
+									alt="Forteenth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide15.jpg" class="img-fluid"
+									alt="Fifteenth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide16.jpg" class="img-fluid"
+									alt="Sixteenth slide">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<a href="Dienthoaithongminh.html">
+								<img src="/images/Laptop/slideshow/slide17.jpg" class="img-fluid"
+									alt="Seventeenth slide">
+							</a>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+						<span class="carousel-control-next-icon " aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-4 img">
+				<a href="Dienthoaithongminh.html"><img src="/images/Laptop/slideshow/1.png"
+						class="img-fluid" alt=""></a>
+				<a href="Dienthoaithongminh.html"><img src="/images/Laptop/slideshow/2.png"
+						class="img-fluid" alt=""></a>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<!-- Bộ lọc sản phẩm -->
+			<div class="col-3">
+				<div class="accordion" id="accordionExample">
+					<div class="card bl">
+						<div class="card-header" id="headingOne">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left" type="button" data-toggle="collapse"
+									data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/brand-16px.png"
+										alt=""> Hãng
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Iphone</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Samsum</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Oppo</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Xiaomi</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Realme</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Vivo</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">OnePlus</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Vsmart</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Itel</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Nokia</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Masstel</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Mobel</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Energizer</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingTwo">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/price-16px.png"
+										alt=""> Giá
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Dưới 2 triệu</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Từ 2 triệu - 4 triệu</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Từ 4 triệu - 7 triệu</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Từ 7 triệu - 13 triệu</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Từ 13 triệu - 20
+										triệu</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Trên 20 triệu</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingThree">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<img class="img-fluid"
+										src="/images/Dienthoaithongminh/bolocsanpham/typesmartphone-16px.png" alt="">
+									Loại điện thoại
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Android</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Iphone (IOS)</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Điện thoại phổ thông</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingFour">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									<img class="img-fluid"
+										src="/images/Dienthoaithongminh/bolocsanpham/powerandpin-16px.png" alt=""> Hiệu
+									năng & PIN
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Chơi game / Cấu hình
+										cao</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Pin khủng trên 5000
+										mAh</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Sạc pin nhanh</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingFive">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/ram.png" alt="">
+									RAM
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">1GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">2GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">3GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">4GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">6GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">8GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">12GB</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingSix">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/rom.png" alt="">
+									Bộ nhớ trong
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">8GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">16GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">32GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">64GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">12GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">256GB</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">512GB</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingSeven">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/camera.png"
+										alt=""> Camera
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Chụp cận cảnh (Marco)</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Chup góc rộng</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Chụp xóa phông</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Chụp zoom xa</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Iphone (IOS)</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingEight">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+									<img class="img-fluid"
+										src="/images/Dienthoaithongminh/bolocsanpham/tinhnangdacbiet-16-px.png" alt="">
+									Tính năng đặc biệt
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseEight" class="collapse" aria-labelledby="headingEight"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Hỗ trợ 5G</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Bảo mật khuôn mặt</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Bảo mật vân tay</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Sạc không dây</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Kháng nước, bụi</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingNine">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+									<img class="img-fluid" src="/images/Dienthoaithongminh/bolocsanpham/design-16px.png"
+										alt=""> Thiết kế
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseNine" class="collapse" aria-labelledby="headingNine"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Tràn viền</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Mỏng nhẹ</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Mặt lưng kính</a>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card bl">
+						<div class="card-header" id="headingTen">
+							<h2 class="mb-0">
+								<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+									data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+									<img class="img-fluid"
+										src="/images/Dienthoaithongminh/bolocsanpham/screen-phone-16px.png" alt=""> Màn
+									hình
+									<img class="img-fluid float-right mt-1"
+										src="/images/Dienthoaithongminh/bolocsanpham/up-down.png" alt="">
+								</button>
+							</h2>
+						</div>
+						<div id="collapseTen" class="collapse" aria-labelledby="headingTen"
+							data-parent="#accordionExample">
+							<div class="card-body">
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Nhỏ gọn dễ cầm</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Từ 6 inch trở lên</a>
+								</button>
+								<button>
+									<a class="dropdown-item" style="font-size: 13px;" href="#">Màn hình gập</a>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- sản phẩm -->
+			<div class="col-9">
+				<div th:if="${message != null}" class="thongbao">
+					<i>[[${message}]]</i>
+				</div>
+				<div class="row mt-1 sanpham">
+					<div th:each="product, iStat: ${productPage.content}" class="col-4 mt-3 mb-3 products">
+						<div class="card sp">
+							<p class="giamgia mt-2">Khuyến mãi: [[${#numbers.formatDecimal(product.discount,0,'POINT',0,'COMMA')}]] %</p>
+							<a href=""><img class="img-fluid" th:src="${product.image!=null? '/admin/products/images/' +
+							product.image : '/images/DefaultImage/macdinh.gif'}" width="40%" style="height: 10rem;" alt=""></a>
+							<div class="card-body">
+								<a href="IP13ProMax-dttm.html">
+									<h5 class="card-title" th:text="${product.name}"></h5>
+								</a>
+								<div class="danhgia">
+									<div class="rate">
+										<label for="star1" title="Rất xấu">1 star</label> <label
+											for="star2" title="Xấu">2 sao</label> <label for="star3"
+											title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+											sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+									</div>
+								</div>
+								<p th:if="${product.unitPrice != product.price}" class="card-text line-through">
+									Giá gốc: [[${#numbers.formatDecimal(product.unitPrice,3,'POINT',0,'COMMA')}]] đ
+								</p>
+								<p class="card-text">
+									Giá: [[${#numbers.formatDecimal(product.price,3,'POINT',0,'COMMA')}]] đ
+								</p>
+								
+							</div>
+							<p style="text-align: center;">Trạng thái : <b style="color:  red;" th:text="${product.status}"></b></p>
+							<div class="soluong">
+								<p>Số lượng còn lại: [[${product.quantity}]]</p>
+							</div>
+							<div class="card-footer">
+								<ul class="list-group">
+									<li>[[${product.description1}]]</li>
+									<li>[[${product.description2}]]</li>
+								</ul>
+								<div class="tht">
+									<a href="#">Tìm hiểu thêm</a>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="row page">
+					<div class="col">
+						<nav aria-label="Page navigation example"
+							th:if="${productPage.totalPages > 0}">
+								<ul class="pagination justify-content-center">
+									<!-- trang hiện tại trang đầu tiên -->
+									<li th:class="${1 == productPage.number + 1} 
+									? 'page-item disabled' : 'page-item'">
+										<a class="page-link" th:href="@{/admin/home/listProductsByCategory/{categoryID}(categoryID=${categoryID},
+										size=${productPage.size}, page=${1})}" aria-label="Previous">
+										<span aria-hidden="true">Đầu</span>
+										</a>
+									</li>
+								
+									<li class="page-item active"
+									th:each=" pageNumber : ${pageNumbers}"
+									th:if="${productPage.totalPages > 1}"
+									th:class="${pageNumber == productPage.number+1} ? 'page-item active' : 'page-item'">
+										<a  th:href="@{/admin/home/listProductsByCategory/{categoryID}(categoryID=${categoryID},
+										size=${productNumber}, page=${pageNumber})}" class="page-link" th:text="${pageNumber}"></a>
+									</li>
+											
+											<!-- trang hiện tại là trang cuối cùng -->
+										<li th:class="${productPage.totalPages == productPage.number + 1} 
+										? 'page-item disabled' : 'page-item'">
+											<a class="page-link" th:href="@{/admin/home/listProductsByCategory/{categoryID}(categoryID=${categoryID},
+											size=${productPage.size}, page=${productPage.totalPages})}" aria-label="Next">
+											<span aria-hidden="true">Cuối</span>
+											</a>
+										</li>
+								</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col mt-5">
+				<div id='nz-div'>
+					<h3 class="tde">			
+								  <span class="null">Có thể bạn sẽ quan tâm</span>	
+					</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div id="ctbst" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li class="active" data-target="#ctbst" style="background-color: black;" data-slide-to="0" aria-current="location"></li>
+						<li data-target="#ctbst" style="background-color: black;" data-slide-to="1"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="row sanpham">
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row sanpham">
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 mb-3 ctbst">
+									<div class="card">
+										<p class="giamgia mt-2">Khuyến mãi: 10 %</p>
+										<a href=""><img class="img-fluid" src="/images/formdangnhap.jpg" width="40%" style="height: 10rem;" alt=""></a>
+										<div class="card-body">
+											<a href="IP13ProMax-dttm.html">
+												<h5 class="card-title">IP</h5>
+											</a>
+											<div class="danhgia">
+												<div class="rate">
+													<label for="star1" title="Rất xấu">1 star</label> <label
+														for="star2" title="Xấu">2 sao</label> <label for="star3"
+														title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+														sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+												</div>
+											</div>
+											<p class="card-text line-through">
+												Giá gốc: 10 đ
+											</p>
+											<p class="card-text">
+												Giá: 20 đ
+											</p>
+										</div>
+										<p style="text-align: center;">Trạng thái : <b style="color:  red;"> Còn hàng</b></p>
+										<div class="soluong">
+											<p>Số lượng còn lại: 10</p>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#ctbst" data-slide="prev" role="button">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#ctbst" data-slide="next" role="button">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+
+</html>

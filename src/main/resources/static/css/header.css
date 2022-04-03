@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+}
+/* Menu 1 */
+.menu1_2>.navbar-light{
+    height: 100%; 
+    background-color: black
+}
+.navbar-collapse>.item-menu1_1>.nav-item>.nav-link{
+    color: white;
+    font-weight: 375;
+}
+.navbar-collapse>.item-menu1_1>.nav-item>.nav-link:hover{
+    color: red;
+}
+/* Menu 2 */
+.navbar-collapse>.item-menu2>.nav-item>.nav-link{
+    color: black;
+    font-weight: 400;
+}
+.navbar-collapse>.item-menu2>.nav-item>.nav-link:hover{
+    color: red;
+
+}
+.menu2>.col>nav{
+    border-radius: 20px;
+}

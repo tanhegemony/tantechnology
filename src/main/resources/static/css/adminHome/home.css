@@ -1,0 +1,56 @@
+
+/* Tên trang admin */
+.namepageadmin{
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    font-style: italic;
+    font-variant: inherit;
+}
+/* Thông báo */
+.tb{
+    border-radius: 10px 10px 0px 0px; 
+    text-align: center;
+    background-image: url(/images/adminHome/nentb.jpg); 
+    margin-top: -0.5rem;
+    color: white; 
+    font-size: 25px; 
+    font-weight: bolder;
+    font-style: italic;
+    font-variant: inherit;
+}
+/* Cập nhật ngày có thông báo */
+.updatedate{
+    font-size: 12px;
+    font-style: italic; 
+    float: right;
+}
+/* Menu quản lý */
+.menu{
+    background-color: #f8f9fa;
+}
+/* title */
+.chuMenu{
+    font-size: 20px;
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 1rem;
+}
+/* footer */
+.footer2{
+    background-color: red; 
+}
+/* Bảng quyền */
+.bq>p {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+/* Giám đốc */
+.gd>p {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+}

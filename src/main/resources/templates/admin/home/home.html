@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/dashboardLayout.html}">
+
+<head>
+	<title>Trang chủ</title>
+	<link rel="stylesheet" th:href="@{/css/home/home.css}">
+
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<!-- Chạy chữ -->
+		<div class="row mt-3 chaychu">
+			<div class="col">
+				<marquee behavior="alternate" direction="left">💕 Chào mừng
+					bạn đến với Tấn Hegemony Technology 💕</marquee>
+			</div>
+		</div>
+		<!-- slideshow -->
+		<div class="row mt-3">
+			<div id="shideshow-homepage" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li class="active" data-target="#shideshow-homepage" style="background-color: black;"
+						data-slide-to="0" aria-current="location"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="1"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="2"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="3"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="4"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="5"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="6"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="7"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="8"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="9"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="10"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="11"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="12"></li>
+					<li data-target="#shideshow-homepage" style="background-color: black;" data-slide-to="13"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/1.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/2.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/3.jpg" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/4.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/5.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/6.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/7.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/8.jpg" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/9.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/10.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/11.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/12.jpg" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/13.png" alt=""></a>
+					</div>
+					<div class="carousel-item">
+						<a href="#"><img class="img-fluid" src="/images/slideshow/14.png" alt=""></a>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#shideshow-homepage" data-slide="prev" role="button"> <span
+						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+						class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#shideshow-homepage" data-slide="next" role="button"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+		<!-- Sản phẩm -->
+		<div class="row mt-1 sanpham">
+			<div th:each="product, iStat: ${productPage.content}" class="col-3 mt-3 mb-3 products">
+				<div class="card">
+					<p class="giamgia mt-2">Khuyến mãi: [[${#numbers.formatDecimal(product.discount,0,'POINT',0,'COMMA')}]] %</p>
+				<a href=""><img class="img-fluid" th:src="${product.image!=null? '/admin/products/images/' +
+				product.image : '/images/DefaultImage/macdinh.gif'}" width="40%" style="height: 10rem;" alt=""></a>
+				<div class="card-body">
+					<a href="IP13ProMax-dttm.html">
+						<h5 class="card-title" th:text="${product.name}"></h5>
+					</a>
+					<div class="danhgia">
+						<div class="rate">
+							<label for="star1" title="Rất xấu">1 star</label> <label
+								for="star2" title="Xấu">2 sao</label> <label for="star3"
+								title="Bình th">3 sao</label> <label for="star4" title="Đẹp">4
+								sao</label> <label for="star5" title="Rất đẹp">5 sao</label>
+						</div>
+					</div>
+					<p th:if="${product.unitPrice != product.price}" class="card-text line-through">
+						Giá gốc: [[${#numbers.formatDecimal(product.unitPrice,3,'POINT',0,'COMMA')}]] đ
+					</p>
+					<p class="card-text">
+						Giá: [[${#numbers.formatDecimal(product.price,3,'POINT',0,'COMMA')}]] đ
+					</p>
+					
+				</div>
+				<p style="text-align: center;">Trạng thái : <b style="color:  red;" th:text="${product.status}"></b></p>
+				<div class="soluong">
+					<p>Số lượng còn lại: [[${product.quantity}]]</p>
+				</div>
+				<div class="card-footer">
+					<ul class="list-group">
+						<li>[[${product.description1}]]</li>
+						<li>[[${product.description2}]]</li>
+					</ul>
+					<div class="tht">
+						<a href="#">Tìm hiểu thêm</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</section>
+</body>
+
+</html>

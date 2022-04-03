@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <title>Trang chủ</title>
+</head>
+
+<body>
+  <div th:fragment="header">
+    <div class="container">
+      <!-- menu1 -->
+      <div class="row menu1">
+        <div class="col-2 menu1_1">
+          <a th:href="@{/admin/home}"><img src="/images/logo.gif" width="80%" alt="" class="img-fluid"></a>
+        </div>
+        <div class="col-10 menu1_2">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" style="background-color: red;" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto item-menu1_1">
+                <li class="nav-item active">
+                  <a class="nav-link" th:href="@{/admin/home}">Trang chủ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:each=" item : ${categories}">
+                  <a class="nav-link" id="categoryName" th:href="@{'/admin/home/listProductsByCategory/' + ${item.categoryID}}">[[${item.name}]]</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- menu2 -->
+      <div class="row menu2">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+              <ul class="navbar-nav mr-auto item-menu2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><img src="/images/icon/icon-tinkhuyenmai.png" alt="" class="img-fluid">
+                    Tin khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tư vấn</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tuyển dụng</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><img src="/images/icon/bell.png" style="width: 20%;" alt=""
+                      class="img-fluid"> Thông báo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="ShoppingCartsServlet"><img src="/images/icon/cart.png" style="width: 20%;"
+                      alt="" class="img-fluid"> Giỏ hàng</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <button th:if="${session.username == null}" class="btn btn-secondary dropdown-toggle" type="button"
+                    id="Login" data-toggle="dropdown" aria-expanded="false">
+                    Đăng nhập
+                  </button>
+                  <button th:if="${session.username != null}" class="btn btn-secondary dropdown-toggle" type="button"
+                    id="Login" data-toggle="dropdown" aria-expanded="false">
+                    [[${session.username}]]
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="login">
+                    <a class="dropdown-item" th:href="@{/admin}" target="_blank">Quản lý</a>
+                    <a class="dropdown-item" href="ChangePasswordServlet">Thay đổi mật khẩu</a>
+                    <a class="dropdown-item" href="EditProfileServlet">Chỉnh sửa thông tin cá nhân</a>
+                    <a class="dropdown-item" th:href="@{/adminLogout}">Đăng xuất</a>
+                  </div>
+                </li> 
+              </ul>
+              <form class="form-inline my-2 my-lg-0" th:action="@{/admin/home/}" method="get">
+                <input class="form-control mr-sm-2" name="name" id="name" th:value="${name}" style="width: 12rem;" type="search"
+                  placeholder="Search tên sản phẩm" aria-label="Search">
+                <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

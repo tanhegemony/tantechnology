@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Đăng nhập</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        .username>label,
+        .password>label {
+            color: white;
+            font-variant: small-caps;
+            font-size: 18px;
+        }
+
+        .ctg>a,
+        .qmk>a {
+            color: white;
+        }
+
+        .ctg,
+        .qmk {
+            text-align: center;
+        }
+
+        .ctg>a:hover,
+        .qmk>a:hover {
+            text-decoration: none;
+        }
+
+        .icon_link {
+            font-size: 12px;
+            margin-top: 1rem;
+        }
+
+        .icon_link>a:hover {
+            text-decoration: none;
+        }
+
+        .thongbao{
+                color: red;
+                text-align: center;
+                background-color: white;
+                font-size: 18px;
+                border-radius: 10px;
+        }
+
+        /* Title */
+        .title>p {
+            color: white;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col" style="background-image: url(images/formdangnhap.jpg);">
+            <form th:action="@{/adminLogin}" th:object="${account}" 
+            style="margin-bottom: 7.2rem;transform: translateY(1rem);" method="post">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.07);">
+                        <div class="modal-header">
+                            <h5 class="modal-title col text-center" style="color: white">ĐĂNG NHẬP</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group col-12 username">
+                                    <label for="username">Username: </label>
+                                    <input type="text" th:field="*{username}" name="username" id="username" class="form-control"
+                                        placeholder="Nhập tên đăng nhập của bạn">
+                                    <small th:if="${#fields.hasErrors('username')}" class="form-text text-light">Username không được để trống</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12 password">
+                                    <label for="password">Password: </label>
+                                    <input type="password" th:field="*{password}" name="password" id="password" class="form-control"
+                                        placeholder="Mật khẩu của bạn phải tối thiểu 6 ký tự">
+                                    <small th:if="${#fields.hasErrors('password')}" class="form-text text-light">Mật khẩu không được để trống</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-8" style="color: white">
+                                    <input type="checkbox" name="remember" id="remember" th:field="*{rememberMe}">
+                                    <label for="remember" class="form-check-label">Nhớ mật khẩu ?</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div th:if="${message != null}" class="thongbao">
+                                        <i>[[${message}]]</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 qmk">
+                                    <a href="ForgotPasswordServlet">Quên mật khẩu</a>
+                                </div>
+                                <div class="col-6 ctg">
+                                    <a href="1">Cần trợ giúp?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group col text-center">
+                                <button type="submit" class="btn btn-default"
+                                    style="background-color: black; color: white;">
+                                    <img class="img-fluid" src="images/icon/login.png"
+                                        alt=""> Đăng nhập
+                                </button>
+                                <a class="btn btn-default" th:href="@{/adminRegistration}"
+                                    style="background-color: black; color: white;">
+                                    <img class="img-fluid" src="images/icon/register.png"
+                                        alt=""> Đăng ký
+                                </a>
+                                <button type="reset" class="btn btn-dark">
+                                    <img class="img-fluid" src="images/icon/reset.png"
+                                        alt=""> Reset
+                                </button>
+                                <button type="submit" formaction="HomepageServlet" class="btn btn-danger"
+                                    data-dismiss="modal">
+                                    <img class="img-fluid" src="images/icon/cancel.png"
+                                        alt=""> Hủy
+                                </button>
+                                <div class="icon_link">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="title float-left">
+                                                <p>Đăng nhập nhanh bằng: </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+                                            <a
+                                                href="https://search.yahoo.com/search?fr=mcafee&type=E210US91215G91503&p=fb">
+                                                <button type="button" class="btn btn-light" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Đăng nhập bằng Facebook">
+                                                    <img class="img-fluid"
+                                                        src="images/icon/facebook.png"
+                                                        alt="">
+                                                </button>
+                                            </a>
+                                            <a
+                                                href="https://www.google.com/chrome/?brand=PASC&utm_source=bing&utm_medium=cpc&utm_campaign=1009936%20%7C%20Chrome%20Win10%20%7C%20DR%20%7C%20ESS01%20%7C%20GLOBAL%20%7C%20GLOBAL%20%7C%20en%20%7C%20Desk%20%7C%20SEM%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20Google&utm_term=google&utm_content=Google%20-%20Exact&gclid=ac06f1bbb9bc1c4b2a469139f8bc2a12&gclsrc=3p.ds">
+                                                <button type="button" class="btn btn-light" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Đăng nhập bằng Google">
+                                                    <img class="img-fluid"
+                                                        src="images/icon/google.png" alt="">
+                                                </button>
+                                            </a>
+                                            <a href="https://www.instagram.com">
+                                                <button type="button" class="btn btn-light" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Đăng nhập bằng Instagram">
+                                                    <img class="img-fluid"
+                                                        src="images/icon/instagram.png"
+                                                        alt="">
+                                                </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="btn btn-light" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Đăng nhập bằng Twitter">
+                                                    <img class="img-fluid"
+                                                        src="images/icon/twitter.png" alt="">
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

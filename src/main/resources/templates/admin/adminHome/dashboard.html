@@ -1,0 +1,350 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/adminDashboard.html}">
+
+<head>
+	<title>Trang chủ - Quản lý</title>
+	<link rel="stylesheet" th:href="@{/css/home/home.css}">
+
+</head>
+
+<body>
+	<section layout:fragment="adminContent">
+		<div class="row">
+            <div class="col-4 content1">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Tổng tiền đã thanh toán</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="/images/adminHome/money-bag.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">30.145.000đ</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 content2">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Tin nhắn / Bình luận</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="/images/adminHome/message.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">10</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 content3">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Đơn hàng đang chờ xử lý</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="/images/adminHome/cart.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">25</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 content4">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Thành viên mới tham gia</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="/images/adminHome/add-user.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">20</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 content5">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Trực tuyến</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="/images/adminHome/online.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">154</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 content6">
+              <div class="card mb-3 nametitle" style="max-width: 540px;">
+                <div class="col-md text-center mt-2">
+                  <h5 class="card-title">Đánh giá website</h5>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-5">
+                    <img src="images/adminHome/rating.png" class="img-fluid ml-3" width="80%" alt="">
+                  </div>
+                  <div class="col-md-7 mt-2 ct">
+                    <div class="card-body">
+                      <p class="card-text text-center">51</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p class="card-text text-center"><small class="text-muted">Cập nhật gần nhất : 27/12/2021 11:19:15</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-7 chart">
+              <div id="myChart" class="chart--container">
+              </div>
+              <script>
+                let initState = null; // Used later to store the chart state before changing the data
+                let chartConfig = {
+                  type: 'bar',
+                  theme: 'classic',
+                  globals: {
+                    fontFamily: 'Helvetica'
+                  },
+                  backgroundColor: 'white',
+                  title: {
+                    text: 'Biểu đồ quan sát tình trạng website qua từng giai đoạn',
+                    backgroundColor: 'white',
+                    color: '#606060'
+                  },
+                  plot: {
+                    // Viền khi rê chuột vào các cột
+                    hoverState: {
+                      border: "2px solid silver"
+                    },
+                    tooltip: {
+                      visible: false
+                    },
+                    // Hiển thị %
+                    valueBox: {
+                      text: '%v%',
+                      color: 'red',
+                      textDecoration: 'underline'
+                    },
+                    animation: {
+                      effect: 'ANIMATION_EXPAND_HORIZONTAL'
+                    },
+                    cursor: 'hand',
+                    dataBrowser: [
+                    ],
+                    rules: [
+                      {
+                        backgroundColor: '#ff6767',
+                        rule: '%i==0'
+                      },
+                      {
+                        backgroundColor: '#a0a0a0',
+                        rule: '%i==1'
+                      },
+                      {
+                        backgroundColor: '#b296f8',
+                        rule: '%i==2'
+                      },
+                      {
+                        backgroundColor: '#d5f277',
+                        rule: '%i==3'
+                      },
+                      {
+                        backgroundColor: '#78ee80',
+                        rule: '%i==4'
+                      }
+                    ]
+                  },
+                  scaleX: {
+                    values: ['Đơn hàng', 'Thành viên', 'Trực tuyến', 'Đánh giá', 'Tin nhắn / Bình luận'],
+                    guide: {
+                      visible: false
+                    },
+                    // Hiển thị chữ dưới mỗi cột
+                    item: {
+                      color: 'red'
+                    },
+                    lineColor: '#C0D0E0',
+                    lineWidth: '1px',
+                    tick: {
+                      lineColor: '#C0D0E0',
+                      lineWidth: '1px'
+                    }
+                  },
+                  scaleY: {
+                    guide: {
+                      lineStyle: 'solid'
+                    },
+                    // Hiển thị số bên
+                    item: {
+                      color: 'black'
+                    },
+                    lineColor: 'none',
+                    tick: {
+                      lineColor: 'none'
+                    }
+                  },
+                  crosshairX: {
+                    lineColor: 'none',
+                    lineWidth: '0px',
+                    marker: {
+                      visible: false
+                    },
+                    plotLabel: {
+                      text: '%v% of total',
+                      padding: '8px',
+                      alpha: 0.9,
+                      backgroundColor: 'white',
+                      borderRadius: '4px',
+                      borderWidth: '3px',
+                      callout: true,
+                      calloutPosition: 'bottom',
+                      color: '#606060',
+                      fontSize: '12px',
+                      multiple: true,
+                      offsetY: '-20px',
+                      placement: 'node-top',
+                      // Viền of total
+                      rules: [
+                        {
+                          borderColor: '#ff6767',
+                          rule: '%i==0'
+                        },
+                        {
+                          borderColor: '#a0a0a0',
+                          rule: '%i==1'
+                        },
+                        {
+                          borderColor: '#b296f8',
+                          rule: '%i==2'
+                        },
+                        {
+                          borderColor: '#d5f277',
+                          rule: '%i==3'
+                        },
+                        {
+                          borderColor: '#78ee80',
+                          rule: '%i==4'
+                        }
+                      ],
+                      shadow: false
+                    },
+                    scaleLabel: {
+                      visible: false
+                    }
+                  },
+                  series: [
+                    {
+                      values: [44.34, 39.28, 57.16, 25.82, 35.18]
+                    }
+                  ]
+                };
+
+                zingchart.render({
+                  id: 'myChart',
+                  data: chartConfig,
+                  height: '100%',
+                  width: '100%',
+                });
+
+                zingchart.bind('myChart', 'node_click', updateChart);
+
+                // Listen for back button click
+                zingchart.bind('myChart', 'shape_click', (p) => {
+                  zingchart.unbind(p.id, 'animation_end');
+                  if (p.shapeid == 'back_btn') {
+                    // Set the data back to the state it was in when the node was clicked
+                    zingchart.exec(p.id, 'setdata', {
+                      data: initState
+                    });
+                    zingchart.bind(p.id, 'node_click', updateChart);
+                  }
+                });
+              </script>
+            </div>
+            <div class="col-5 userdangonline">
+              <p>Các user đang trực tuyến</p>
+              <table class="table table-light tableuser">
+                <thead class="thead-light">
+                  <tr>
+                    <th>UserName</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>tanhegemony</td>
+                    <td>Admin</td>
+                    <td><i class="fas fa-circle"></i> Trực tuyến</td>
+                  </tr>
+                  <tr>
+                    <td>tanhegemony12</td>
+                    <td>User</td>
+                    <td><i class="fas fa-circle"></i> Trực tuyến</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="3" class="text-center" ><a href="#">Xem tất cả</a></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+    </section>
+</body>
+
+</html>

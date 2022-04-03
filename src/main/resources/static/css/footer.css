@@ -1,0 +1,83 @@
+/* footer */
+/* footer1 */
+.footer1{
+    background-color: #f8f9fa; border-radius: 10px 10px 0px 0px;
+}
+.map{
+    background-color: #f8f9fa;
+}
+/* footer2 */
+.footer2{
+    background-color: red; border-radius: 0px 0px 10px 10px;
+}
+.ttcch,
+.mxh,
+.ttanddvvc,
+.tud {
+    margin-top: 1rem;
+}
+
+/* thông tin các cửa hàng */
+.ttcch>h6 {
+    font-size: 18px;
+    transform: translateX(1rem);
+}
+
+
+/* mạng xã hội */
+.mxh>h6 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.mxh>p {
+    text-align: center;
+}
+
+.mxh>p>a {
+    color: black;
+}
+
+.mxh>p>a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+/* Thanh toán và đơn vị vận chuyển */
+.tt {
+    font-size: 18px;
+    text-align: center;
+}
+
+.dvvc {
+    font-size: 18px;
+    text-align: center;
+}
+
+.ttanddvvc>p {
+    text-align: center;
+}
+
+/* Tải ứng dụng  */
+.tud>h6 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.tud>p {
+    text-align: center;
+}
+
+/* Bảng quyền */
+.bq>p {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+}
+
+/* Giám đốc */
+.gd>p {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+}

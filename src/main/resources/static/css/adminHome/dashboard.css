@@ -1,0 +1,18 @@
+/* số trong dashboard */
+.ct>.card-body>.card-text{
+    font-size: 20px;
+    color: red;
+    font-weight: bolder;
+}
+/* user đang trực tuyến */
+.userdangonline>p{
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+}
+/* icon trực tuyến */
+.fa-circle{
+    color: #17df78;
+}
+/* biểu đồ */
+.chart--container {  height: 100%;  width: 100%;  min-height: 530px;}

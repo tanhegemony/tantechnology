@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{admin/dashboardLayout.html}"
+>
+
+<head>
+    <title>Thêm danh mục</title>
+    <link rel="stylesheet" th:href="@{/css/categories/addCategory.css}">
+
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="row mt-5">
+        <div class="col-8 offset-2">
+            <form th:action="@{/admin/categories/saveOrUpdateCategory}" th:object="${category}" method="post">
+                <div class="card">
+                    <div class="card-header" th:unless="${category.isEdit}">
+                        Thêm Danh Mục
+                    </div>
+                    <div class="card-header" th:if="${category.isEdit}">
+                        Chỉnh sửa Danh Mục
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                          <label for="categoryID">CategoryID: </label>
+                          <!--  hidden xem thử là chế độ new hay edit -->
+                          <input type="hidden" th:field="*{isEdit}">
+                          <input type="text" th:field="*{categoryID}" 
+                          class="form-control" name="categoryID" placeholder="Category ID tự động tăng"
+                          id="categoryID" aria-describedby="categoryIDHID" readonly>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">CategoryName: </label>
+                          <input type="text" th:field="*{name}" class="form-control" 
+                          name="name" id="name" aria-describedby="categoryNameHid" placeholder="Nhập tên danh mục">
+                          <small th:if="${#fields.hasErrors('name')}" id="categoryNameHid" class="form-text text-muted">Category không được để trống!!</small>
+                        </div>
+                        <div th:if="${message != null}" class="thongbao">
+                            <i>[[${message}]]</i>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button th:unless="${category.isEdit}" type="submit" class="btn btn-success">
+                            <img class="img-fluid" src="/images/icon/plus.png" alt=""> Thêm
+                        </button>
+                        <button th:if="${category.isEdit}" type="submit" class="btn btn-success">
+                            <img class="img-fluid" src="/images/icon/update-16px.png" alt=""> Cập nhật
+                        </button>
+                        <a th:href="@{/admin/categories/}" class="btn btn-info"><img class="img-fluid" src="/images/icon/list.png" alt=""> Danh sách các Category</a>
+                        <button type="reset" class="btn btn-danger"><img class="img-fluid" src="/images/icon/reset.png" alt=""> Reset</button>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

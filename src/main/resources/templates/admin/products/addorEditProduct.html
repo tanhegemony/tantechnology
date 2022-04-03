@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{admin/dashboardLayout.html}">
+
+<head>
+    <title>Thêm sản phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/products/addProduct.css}">
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <div class="row mt-5">
+            <div class="col">
+                <form action="/admin/products/saveOrUpdateProduct" enctype="multipart/form-data"
+                    th:object="${product}" method="post">
+                    <div class="card">
+                        <div class="card-header" th:unless="${product.isEdit}">
+                            Thêm Sản phẩm
+                        </div>
+                        <div class="card-header" th:if="${product.isEdit}">
+                            Chỉnh sửa Sản phẩm
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-8">
+                                    <!--  hidden xem thử là chế độ new hay edit -->
+                                    <input type="hidden" th:field="*{isEdit}">
+                                    <div class="form-group">
+                                        <label for="productID">ProductID: </label>
+                                        <input type="text" th:field="*{productID}" class="form-control" name="productID"
+                                            placeholder="Mã sản phẩm tự động tăng" id="productID" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="form-check-inline">ProductName: 
+                                            <small th:if="${#fields.hasErrors('name')}" id="productNameHid" 
+                                        class="ml-3" th:errors="*{name}"></small>
+                                        </label>
+                                        <input type="text" th:field="*{name}" class="form-control" 
+                                        name="name" id="name" aria-describedby="productNameHid" placeholder="Nhập tên sản phẩm">
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantity" class="form-check-inline">Quantity:  
+                                            <small th:if="${#fields.hasErrors('quantity')}" id="quantityHid" 
+                                            class="ml-3" th:errors="*{quantity}">
+                                            </small>
+                                        </label>
+                                        <input type="text" th:field="*{quantity}"  
+                                        class="form-control" name="quantity" id="quantity" 
+                                        aria-describedby="quantityHid" placeholder="Nhập số lượng sản phẩm">
+                                       
+                                    </div>
+                            </div>
+                            <div class="col-4 mt-2">
+                                <!-- click chọn ảnh thì hiển thị ảnh trong form -->
+                                <script>
+                                    function chooseFile(fileInput){
+                                        if(fileInput.files && fileInput.files[0]){
+                                            var reader = new FileReader();
+
+                                            reader.onload = function(e){
+                                                $('#image').attr('src', e.target.result);
+                                            }
+
+                                            reader.readAsDataURL(fileInput.files[0]);
+                                        }
+                                    }
+                                </script>
+                                <img class="img-fluid" id="image" th:src="${product.image!=null? '/admin/products/images/' + 
+                                    product.image : '/images/DefaultImage/macdinh.gif'}"    
+                                src="/images/DefaultImage/macdinh.gif" width="50%">
+                                <!-- trường hình ảnh -->
+                                <div class="form-group">
+                                    <label for="image" class="form-check-inline">Image File:
+                                    </label>
+                                    <input type="file" onchange="chooseFile(this)" 
+                                    class="form-control-file" th:field="*{imageFile}" 
+                                    name="imageFile" id="image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="input-group form-group">
+                                    <label for="unitPrice" class="form-check-inline">Unit Price: 
+                                        <small th:if="${#fields.hasErrors('unitPrice')}" id="unitPriceHid" 
+                                        class="ml-3" th:errors="*{unitPrice}"></small>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" onmouseout="checkPrice()" th:field="*{unitPrice}"
+                                        name="unitPrice" id="unitPrice" aria-describedby="unitPriceHid"
+                                        placeholder="Nhập giá mỗi sản phẩm">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">VNĐ</div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group form-group">
+                                    <label for="discount" class="form-check-inline">Discount: 
+                                        <small th:if="${#fields.hasErrors('discount')}" id="discountHid" 
+                                    class="ml-3" th:errors="*{discount}"></small>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" th:field="*{discount}"
+                                        name="discount" id="discount" onmouseout="checkPrice()" aria-describedby="discountHid"
+                                        placeholder="Nhập % giảm giá sản phẩm">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">%</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <script type="text/javascript">
+                                    function checkPrice(){
+                                        var unitPrice = document.getElementById('unitPrice').value;
+                                        var discount = document.getElementById('discount').value;
+                                        var result = parseFloat(unitPrice) - (parseFloat(unitPrice)*(parseFloat(discount)/100));
+                                        var resultPrice = parseFloat(result);
+                                        document.getElementById('price').value = resultPrice;
+
+                                    }
+                                </script>
+                                <div class="input-group form-group">
+                                    <label for="price" class="form-check-inline">Price: 
+                                        <small  th:if="${#fields.hasErrors('price')}" id="price" 
+                                    class="ml-3" th:errors="*{price}"></small>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" th:field="*{price}"
+                                        name="price" id="price" readonly>
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">VNĐ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="categoryID">Category: </label>
+                                    <select class="custom-select" name="categoryID"
+                                     id="categoryID" th:field="*{categoryID}">
+                                        <option th:each=" item : ${categories}" th:value="${item.categoryID}"
+                                        th:text="${item.name}" th:selected="${item.categoryID == product.categoryID }">Category Name</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="status">Status: </label>
+                                    <select class="form-control" th:field="*{status}" name="status" id="status">
+                                      <option value="Còn hàng">Còn hàng</option>
+                                      <option value="Đang giảm giá">Đang giảm giá</option>
+                                      <option value="Được quan tâm">Được quan tâm</option>
+                                      <option value="Mua nhiều">Mua nhiều</option>
+                                      <option value="Hết hàng">Hết hàng</option>
+                                    </select>
+                                  </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                  <label for="deviceName" class="form-check-inline">DeviceName: 
+                                    <small th:if="${#fields.hasErrors('deviceName')}" id="deviceNameHid" 
+                                    class="ml-3" th:errors="*{deviceName}"></small>
+                                  </label>
+                                  <input type="text" class="form-control" th:field="*{deviceName}" name="deviceName" id="deviceName" aria-describedby="deviceNameHid" placeholder="Tên thiết bị phù hợp cho sản phẩm">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="description1" class="form-check-inline">Description1: 
+                                        <small class="ml-3" th:if="${#fields.hasErrors('description1')}" 
+                                        id="description1_Hid" th:errors="*{description1}"></small>
+                                    </label>
+                                    <input type="text" th:field="*{description1}" name="description1" 
+                                    id="description1" class="form-control" 
+                                    aria-describedby="description1_Hid" placeholder="Nhập mô tả thứ nhất">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="description2" class="form-check-inline">Description2: 
+                                        <small class="ml-3" th:if="${#fields.hasErrors('description2')}" id="description2_Hid" th:errors="*{description2}"></small>
+                                    </label>
+                                    <input type="text" th:field="*{description2}" name="description2" 
+                                    id="description2" class="form-control" 
+                                    aria-describedby="description2_Hid" placeholder="Nhập mô tả thứ hai">
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${message != null}" class="thongbao">
+                            <i>[[${message}]]</i>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button th:unless="${product.isEdit}" type="submit" class="btn btn-success">
+                            <img class="img-fluid" src="/images/icon/plus.png" alt=""> Thêm
+                        </button>
+                        <button th:if="${product.isEdit}" type="submit" class="btn btn-success">
+                            <img class="img-fluid" src="/images/icon/update-16px.png" alt=""> Cập nhật
+                        </button>
+                        <a th:href="@{/admin/products/}" class="btn btn-info"><img class="img-fluid" src="/images/icon/list.png" alt=""> Danh sách các Product</a>
+                        <button type="reset" class="btn btn-danger"><img class="img-fluid" src="/images/icon/reset.png" alt=""> Reset</button>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

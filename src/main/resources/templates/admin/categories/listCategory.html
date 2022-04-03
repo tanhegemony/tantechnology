@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{admin/dashboardLayout.html}"
+>
+
+<head>
+    <title>Danh sách các Category</title>
+    <link rel="stylesheet" th:href="@{/css/categories/listCategory.css}">
+
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Danh sách Category
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/categories/}">
+                        <div class="form-inline">
+                            <input type="text" class="col form-control ml-2" th:value="${name}" name="name" placeholder="Nhập tên danh mục cần tìm kiếm">
+                            <button class="btn btn-danger ml-2">Tìm kiếm</button>
+                            <a th:href="@{/admin/categories/}" class="btn btn-info ml-2">Tất cả</a>
+                        </div>
+                    </form>
+                    <div class="row mb-2 mt-2">
+                        <div class="col-5">
+                            <div th:if="${message != null}" class="thongbao">
+                                <i>[[${message}]]</i>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                           <form action="">
+                            <div class="form-inline float-left">
+                                <label for="size" class="ml-2">Số Category hiển thị: </label>
+                                <!-- tự động cập nhập size onchange -->
+                                <select id="size" class="form-control ml-2" name="size"
+                                 onchange="this.form.submit()">
+                                    <option th:selected="${categoryPage.size == 5}" value="5">5</option>
+                                    <option th:selected="${categoryPage.size == 10}" value="10">10</option>
+                                    <option th:selected="${categoryPage.size == 15}" value="15">15</option>
+                                    <option th:selected="${categoryPage.size == 20}" value="20">20</option>
+                                </select>
+                            </div>
+                           </form> 
+                        </div>
+                        <div class="col-3">
+                            <div class="addCategory">
+                                <a th:href="@{/admin/categories/addCategory}" 
+                                class="btn btn-outline-dark float-right">Thêm Danh mục mới</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" th:if="${!categoryPage.hasContent()}"> 
+                        <div class="col">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Không tìm thấy Danh mục</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-light text-center"
+                    th:if="${categoryPage.hasContent()}">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>CategoryID</th>
+                                <th>CategoryName</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="category, iStat : ${categoryPage.content}">
+                                <td th:text="${category.categoryID}"></td>
+                                <td th:text="${category.name}"></td>
+                                <td>
+                                    <a th:href="@{'/admin/categories/edit/' + ${category.categoryID}}" class="btn btn-light"><img class="img-fluid" src="/images/icon/edit-16px.png" alt=""> Chỉnh sửa</a>
+                                    <a th:href="@{'/admin/categories/delete/' + ${category.categoryID}}" class="btn btn-danger"><img class="img-fluid" src="/images/icon/delete-16px.png" alt=""> Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-muted">
+                    <nav aria-label="Page navigation example"
+                    th:if="${categoryPage.totalPages > 0}">
+                        <ul class="pagination justify-content-center">
+                            <!-- trang hiện tại trang đầu tiên -->
+                          <li th:class="${1 == categoryPage.number + 1} 
+                          ? 'page-item disabled' : 'page-item'">
+                            <a class="page-link" th:href="@{/admin/categories/(name=${name},
+                            size=${categoryPage.size}, page=${1})}" aria-label="Previous">
+                              <span aria-hidden="true">Đầu</span>
+                            </a>
+                          </li>
+
+                          <li class="page-item active"
+                          th:each=" pageNumber : ${pageNumbers}"
+                          th:if="${categoryPage.totalPages > 1}"
+                          th:class="${pageNumber == categoryPage.number+1} ? 'page-item active' : 'page-item'">
+                              <a th:href="@{/admin/categories/(name=${name},
+                              size=${categoryNumber}, page=${pageNumber})}" class="page-link" th:text="${pageNumber}"></a>
+                            </li>
+                            
+                            <!-- trang hiện tại là trang cuối cùng -->
+                          <li th:class="${categoryPage.totalPages == categoryPage.number + 1} 
+                          ? 'page-item disabled' : 'page-item'">
+                            <a class="page-link" th:href="@{/admin/categories/(name=${name},
+                            size=${categoryPage.size}, page=${categoryPage.totalPages})}" aria-label="Next">
+                              <span aria-hidden="true">Cuối</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
